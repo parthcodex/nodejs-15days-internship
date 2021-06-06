@@ -1,0 +1,35 @@
+<% if(db_rows_array.length >= 1){ %>
+    <table border="1px">
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Price</th>
+        </tr>
+
+        <% db_rows_array.forEach(function(item){ %>
+
+            <tr>
+                <td>
+                    <%= item.id %>
+                </td>
+                <td>
+                    <%= item.name %>
+                </td>
+                <td>
+                    <%= item.price %>
+                </td>
+                <td>
+                    <a href="/delete?id=<%= item.id %>" onclick="return confirm('Are you sure ?)')">DELETE</a>
+
+                </td>
+                <td>
+                    <a href="/edit?id=<%= item.id %>" onclick="return confirm('Are you sure ?)')">EDIT</a>
+                </td>
+
+            </tr>
+            <% }); %>
+    </table>
+
+    <% }else{ %>
+        No Records Found
+        <% } %>
